@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.tinydi</groupId>
+  <artifactId>tinydi</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <slf4j.version>1.5.2</slf4j.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+   <dependency>
+     <groupId>javax.inject</groupId>
+     <artifactId>javax.inject</artifactId>
+     <version>1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
+  <issueManagement>
+    <url>http://code.google.com/p/tinydi/issues/list</url>
+  </issueManagement>
+  
+  <scm>
+    <url>http://tinydi.googlecode.com/svn/trunk/</url>
+  </scm>
+  
+  <organization>
+    <url>tinydi.googlecode.com</url>
+  </organization>
+  
+  <build>
+    <plugins>
+      <!-- skip unittests by default. Re-enable with -DskipTest=false -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.8</version>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
