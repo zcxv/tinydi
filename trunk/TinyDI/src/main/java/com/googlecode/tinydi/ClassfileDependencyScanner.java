@@ -155,8 +155,13 @@ public class ClassfileDependencyScanner {
       if (file.isDirectory()) {
         classes.addAll(findClasses(file, packageName + "." + file.getName()));
       } else if (file.getName().endsWith(".class")) {
-        classes.add(Class.forName(packageName + '.'
-            + file.getName().substring(0, file.getName().length() - 6)));
+        String className = null;
+        try {
+          className = packageName + '.' + file.getName().substring(0, file.getName().length() - 6);
+          classes.add(Class.forName(className));
+        } catch (Throwable t) {
+          logger.warn(MessageFormat.format("Unable to instantiate and therefore scan class {0}.", className ), t);
+        }
       }
     }
     return classes;
