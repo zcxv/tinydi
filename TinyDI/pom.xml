@@ -35,19 +35,37 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  
+
+  <url>http://tinydi.googlecode.com/</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <issueManagement>
     <url>http://code.google.com/p/tinydi/issues/list</url>
   </issueManagement>
   
   <scm>
     <url>http://tinydi.googlecode.com/svn/trunk/</url>
+    <connection>http://tinydi.googlecode.com/svn/trunk/</connection>
   </scm>
   
   <organization>
     <url>tinydi.googlecode.com</url>
   </organization>
-  
+
+  <developers>
+    <developer>
+      <id>palr</id>
+      <name>Richard Pal</name>
+      <email>testmailbox5@gmail.com</email>
+    </developer>
+  </developers>
+
   <build>
     <plugins>
       <!-- skip unittests by default. Re-enable with -DskipTest=false -->
