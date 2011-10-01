@@ -5,6 +5,12 @@
   <artifactId>tinydi</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
   <properties>
     <slf4j.version>1.5.2</slf4j.version>
   </properties>
