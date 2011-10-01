@@ -50,8 +50,8 @@
   
   <scm>
     <url>http://tinydi.googlecode.com/svn/tags/tinydi-1.0</url>
-    <connection>http://tinydi.googlecode.com/svn/tags/tinydi-1.0</connection>
-    <developerConnection>http://tinydi.googlecode.com/svn/tags/tinydi-1.0</developerConnection>
+    <connection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.0</connection>
+    <developerConnection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.0</developerConnection>
   </scm>
   
   <organization>
