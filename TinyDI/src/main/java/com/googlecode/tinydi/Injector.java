@@ -1,5 +1,10 @@
 package com.googlecode.tinydi;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -7,12 +12,6 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Performs the injection of dependencies on a class instance.<br>
@@ -72,9 +71,17 @@ public class Injector {
       // else via the referenced class name:
       Named named = field.getAnnotation(Named.class);
       Object injectedValue = (named != null) ? repository.getBean(named.value())
-                                             : repository.getBean(field.getType()); 
-      
-      setterMethod.invoke(object, injectedValue);
+                                             : repository.getBean(field.getType());
+
+      try {
+        setterMethod.invoke(object, injectedValue);
+      } catch (Exception e) {
+        throw new InstantiationException(MessageFormat.format(
+          "Unable to call setter function [{0}] of object {1} with argument type {2}",
+          setterMethod.toString(),
+          object.getClass(),
+          injectedValue.getClass(), e));
+      }
       logger.info(MessageFormat.format("Injected {0}.{1}() successfully", 
           clazz.getCanonicalName(), setterMethodName));
     }
