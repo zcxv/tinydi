@@ -2,13 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.tinydi</groupId>
   <artifactId>tinydi</artifactId>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
 
-  <parent>
+  <!-- parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
     <version>7</version>
-  </parent>
+  </parent -->
 
   <properties>
     <slf4j.version>1.5.2</slf4j.version>
@@ -49,9 +49,9 @@
   </issueManagement>
   
   <scm>
-    <url>http://tinydi.googlecode.com/svn/tags/tinydi-1.1</url>
-    <connection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.1</connection>
-    <developerConnection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.1</developerConnection>
+    <url>http://tinydi.googlecode.com/svn/tags/tinydi-1.2</url>
+    <connection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.2</connection>
+    <developerConnection>scm:svn:http://tinydi.googlecode.com/svn/tags/tinydi-1.2</developerConnection>
   </scm>
   
   <organization>
@@ -77,7 +77,7 @@
           <skipTests>${skipTests}</skipTests>
         </configuration>
       </plugin>
-      <plugin>
+      <!-- plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.4</version>
@@ -90,7 +90,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin -->
     </plugins>
   </build>
 
