@@ -13,7 +13,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Scans the classpath (bot the filesystem and the jars) for classes inside a certain java package.
+ * Scans the classpath (both the filesystem and the jars) for classes inside a certain java package.
  *
  * @author Richard Pal
  * @date 10/23/11
@@ -22,7 +22,7 @@ public class ClasspathScanner {
 
   protected Logger logger = LoggerFactory.getLogger(getClass());
 
-  List<String> getClassNamesFromPackage(String packagePrefix) throws IOException {
+  public List<String> getClassNamesFromPackage(String packagePrefix) throws IOException {
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     ArrayList<String> classNameList = new ArrayList<String>();
 
@@ -92,7 +92,6 @@ public class ClasspathScanner {
 
       } else {
         // add the simple class:
-        //entryName = entryName.substring(0, entryName.lastIndexOf('.'));
         entryName = packageName + "." + entryName.substring(0, entryName.lastIndexOf('.'));
         logger.debug("adding class to list: {}", entryName);
         classList.add(entryName);
