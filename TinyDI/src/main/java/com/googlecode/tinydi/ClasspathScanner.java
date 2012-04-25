@@ -64,7 +64,7 @@ public class ClasspathScanner {
 
       if (entryName.startsWith(packagePrefix)
         && entryName.length()> packagePrefix.length()+5
-        && entryName.indexOf(".class") != -1) {
+        && entryName.endsWith(".class")) {
         //entryName = entryName.substring(packagePrefix.length(),entryName.lastIndexOf('.'));
         entryName = entryName.substring(0,entryName.lastIndexOf('.')).replace("/", ".");
         classList.add(entryName);
@@ -84,13 +84,13 @@ public class ClasspathScanner {
       String entryName = actual.getName();
 
       // is this a package directory?
-      if (entryName.indexOf('.') == -1) {
+      if (actual.isDirectory() && entryName.indexOf('.') == -1) {
         String childPackage = packageName + "." + entryName;
         logger.debug("drilling down to childpackage: {}", childPackage);
 
         getClassNamesFromFileSystem(classLoader, actual, classList, childPackage);
 
-      } else {
+      } else if (entryName.endsWith(".class")) {
         // add the simple class:
         entryName = packageName + "." + entryName.substring(0, entryName.lastIndexOf('.'));
         logger.debug("adding class to list: {}", entryName);
